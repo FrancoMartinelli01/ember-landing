@@ -1,7 +1,10 @@
+const WHATSAPP_HREF =
+  "https://wa.me/5491169092108?text=Hola!%20Quiero%20pedir%20un%20presupuesto%20para%20mi%20evento%20%F0%9F%94%A5";
+
 const WhatsAppFab = () => {
   return (
     <a
-      href="https://wa.me/5491XXXXXXXXX"
+      href={WHATSAPP_HREF}
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Consultanos por WhatsApp"
