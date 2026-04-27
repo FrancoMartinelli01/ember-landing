@@ -36,10 +36,31 @@ const ServicioSection = () => {
           {items.map(({ icon: Icon, title, desc }) => (
             <div
               key={title}
-              className="bg-bg-secondary border border-border-subtle rounded-md p-8 text-center hover:border-primary/60 transition-colors"
+              className="group rounded-md p-8 text-center transition-all duration-300 hover:-translate-y-1"
+              style={{
+                border: "1px solid rgba(180, 80, 20, 0.25)",
+                background: "linear-gradient(135deg, #161616 0%, #1a0f08 100%)",
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.boxShadow =
+                  "0 0 30px rgba(180, 70, 20, 0.35), 0 0 60px rgba(120, 40, 10, 0.15)";
+                e.currentTarget.style.borderColor = "rgba(200, 90, 30, 0.55)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.boxShadow = "";
+                e.currentTarget.style.borderColor = "rgba(180, 80, 20, 0.25)";
+              }}
             >
-              <div className="mx-auto w-14 h-14 rounded-full bg-bg-surface border border-border-subtle flex items-center justify-center mb-5">
-                <Icon className="h-6 w-6 text-ember-warm" aria-hidden />
+              <div
+                className="mx-auto flex items-center justify-center mb-5 rounded-full"
+                style={{
+                  width: "56px",
+                  height: "56px",
+                  background: "rgba(180, 70, 20, 0.2)",
+                  boxShadow: "0 0 20px rgba(180, 70, 20, 0.3)",
+                }}
+              >
+                <Icon className="h-7 w-7 text-ember-warm" aria-hidden />
               </div>
               <h3 className="font-display text-xl text-foreground">{title}</h3>
               <p className="mt-3 font-body text-text-muted">{desc}</p>

@@ -20,7 +20,7 @@ const Footer = () => {
             <Instagram className="h-5 w-5" />
           </a>
           <a
-            href="https://wa.me/5491XXXXXXXXX"
+            href="https://wa.me/5491169092108?text=Hola!%20Quiero%20pedir%20un%20presupuesto%20para%20mi%20evento%20%F0%9F%94%A5"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="WhatsApp"
