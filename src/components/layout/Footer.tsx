@@ -1,13 +1,14 @@
-import { Instagram, Flame } from "lucide-react";
+import { Instagram } from "lucide-react";
 
 const Footer = () => {
   return (
     <footer className="relative z-10 border-t border-border-subtle bg-bg-secondary py-12">
       <div className="container flex flex-col items-center gap-4 text-center">
-        <div className="flex items-center gap-2">
-          <Flame className="h-5 w-5 text-ember-warm" aria-hidden />
-          <span className="font-display font-extrabold tracking-[0.3em] text-foreground">FUEGO NÓMADE</span>
-        </div>
+        <img
+          src="/fuego-nomade-logo.png"
+          alt="Fuego Nómade"
+          className="h-10 w-auto"
+        />
         <p className="font-display italic text-text-muted">El fuego que transforma tus eventos.</p>
         <div className="flex items-center gap-4 mt-2">
           <a
