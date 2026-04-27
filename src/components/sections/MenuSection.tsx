@@ -4,8 +4,31 @@ import {
   fingerFoods,
   principales,
   burgerDetails,
+  burgerImage,
   veggieItems,
 } from "@/data/menuData";
+
+const cardImageClass =
+  "relative w-full h-[180px] -mx-6 -mt-6 mb-5 overflow-hidden rounded-t-md";
+
+const CardImage = ({ src, alt }: { src: string; alt: string }) => (
+  <div className={cardImageClass} style={{ width: "calc(100% + 3rem)" }}>
+    <img
+      src={src}
+      alt={alt}
+      loading="lazy"
+      className="w-full h-full object-cover"
+    />
+    <div
+      className="absolute inset-0 pointer-events-none"
+      aria-hidden
+      style={{
+        background:
+          "linear-gradient(to bottom, transparent 50%, rgba(10,10,10,0.85) 100%)",
+      }}
+    />
+  </div>
+);
 
 const MenuSection = () => {
   return (
@@ -32,7 +55,7 @@ const MenuSection = () => {
               <TabsTrigger
                 key={t.v}
                 value={t.v}
-                className="font-display text-base md:text-lg px-5 py-2 bg-transparent text-text-muted data-[state=active]:bg-transparent data-[state=active]:text-foreground data-[state=active]:border-b-2 data-[state=active]:border-primary rounded-none"
+                className="font-display text-base md:text-lg px-5 py-2 rounded-md border border-transparent bg-transparent text-text-muted hover:text-foreground data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:shadow-[0_0_20px_rgba(107,26,42,0.5)]"
               >
                 {t.l}
               </TabsTrigger>
@@ -45,8 +68,9 @@ const MenuSection = () => {
               {fingerFoods.map((item) => (
                 <article
                   key={item.name}
-                  className="bg-bg-surface border border-border-subtle rounded-md p-6 hover:border-primary/60 transition-colors"
+                  className="bg-bg-surface border border-border-subtle rounded-md p-6 overflow-hidden hover:border-primary/60 transition-colors"
                 >
+                  {item.image && <CardImage src={item.image} alt={item.name} />}
                   <h3 className="font-display text-xl text-foreground">{item.name}</h3>
                   {item.description && (
                     <p className="mt-2 font-body text-sm text-text-muted">{item.description}</p>
@@ -62,8 +86,9 @@ const MenuSection = () => {
               {principales.map((card) => (
                 <article
                   key={card.title}
-                  className="bg-bg-surface border border-border-subtle rounded-md p-6 flex flex-col"
+                  className="bg-bg-surface border border-border-subtle rounded-md p-6 overflow-hidden flex flex-col"
                 >
+                  {card.image && <CardImage src={card.image} alt={card.title} />}
                   {card.badge && (
                     <span className="self-start mb-4 inline-block px-3 py-1 rounded-full bg-primary text-primary-foreground text-xs font-body tracking-wide">
                       {card.badge}
@@ -85,18 +110,36 @@ const MenuSection = () => {
 
           {/* TAB 3 */}
           <TabsContent value="burgers">
-            <div className="max-w-3xl mx-auto bg-bg-surface border border-border-subtle rounded-md p-10 text-center ember-glow">
-              <h3 className="font-display font-extrabold text-3xl md:text-4xl text-foreground">
-                100% Caseras. <span className="italic text-ember-warm">100% Fuego.</span>
-              </h3>
-              <ul className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-3 text-left max-w-xl mx-auto">
-                {burgerDetails.map((d) => (
-                  <li key={d} className="flex gap-2 font-body text-foreground">
-                    <Flame className="h-4 w-4 text-ember-orange mt-1 shrink-0" aria-hidden />
-                    {d}
-                  </li>
-                ))}
-              </ul>
+            <div className="max-w-3xl mx-auto bg-bg-surface border border-border-subtle rounded-md overflow-hidden ember-glow">
+              <div className="relative w-full h-[260px]">
+                <img
+                  src={burgerImage}
+                  alt="Hamburguesas al fuego"
+                  loading="lazy"
+                  className="w-full h-full object-cover"
+                />
+                <div
+                  className="absolute inset-0"
+                  aria-hidden
+                  style={{
+                    background:
+                      "linear-gradient(to bottom, rgba(10,10,10,0.2) 0%, rgba(10,10,10,0.95) 100%)",
+                  }}
+                />
+              </div>
+              <div className="p-10 text-center">
+                <h3 className="font-display font-extrabold text-3xl md:text-4xl text-foreground">
+                  100% Caseras. <span className="italic text-ember-warm">100% Fuego.</span>
+                </h3>
+                <ul className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-3 text-left max-w-xl mx-auto">
+                  {burgerDetails.map((d) => (
+                    <li key={d} className="flex gap-2 font-body text-foreground">
+                      <Flame className="h-4 w-4 text-ember-orange mt-1 shrink-0" aria-hidden />
+                      {d}
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
           </TabsContent>
 
@@ -110,7 +153,11 @@ const MenuSection = () => {
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                 {veggieItems.map((it) => (
-                  <article key={it.name} className="bg-bg-secondary border border-border-subtle rounded-md p-5">
+                  <article
+                    key={it.name}
+                    className="bg-bg-secondary border border-border-subtle rounded-md p-5 overflow-hidden"
+                  >
+                    {it.image && <CardImage src={it.image} alt={it.name} />}
                     <h3 className="font-display text-lg text-foreground">{it.name}</h3>
                     {it.description && (
                       <p className="mt-1 font-body text-sm text-text-muted">{it.description}</p>
