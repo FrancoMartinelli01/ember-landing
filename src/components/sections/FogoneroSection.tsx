@@ -6,7 +6,7 @@ const FogoneroSection = () => {
           {/* LEFT COLUMN — Photo */}
           <div className="relative overflow-hidden rounded-xl" style={{ maxHeight: "520px" }}>
             <img
-              src="/Mateo_asador.jpeg"
+              src="https://raw.githubusercontent.com/FrancoMartinelli01/ember-landing/main/public/Mateo_asador.jpeg"
               alt="Mateo Martinelli — El fogonero"
               className="w-full h-full object-cover"
               style={{ objectPosition: "top center", maxHeight: "520px" }}
