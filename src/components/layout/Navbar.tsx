@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Flame, Menu } from "lucide-react";
+import { Menu } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
 
@@ -31,11 +31,12 @@ const Navbar = () => {
       )}
     >
       <nav className="container flex items-center justify-between h-16 md:h-20" aria-label="Principal">
-        <a href="#top" className="flex items-center gap-2 group" aria-label="Ir al inicio">
-          <Flame className="h-5 w-5 text-ember-warm group-hover:text-ember-orange transition-colors" aria-hidden />
-          <span className="font-display font-extrabold tracking-[0.25em] text-foreground text-sm md:text-base">
-            FUEGO&nbsp;NÓMADE
-          </span>
+        <a href="#top" className="flex items-center group" aria-label="Ir al inicio">
+          <img
+            src="/fuego-nomade-logo.png"
+            alt="Fuego Nómade"
+            className="h-12 w-auto"
+          />
         </a>
 
         <ul className="hidden md:flex items-center gap-8">
