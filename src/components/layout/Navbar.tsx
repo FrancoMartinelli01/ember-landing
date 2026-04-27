@@ -9,6 +9,7 @@ const links = [
   { href: "#servicio", label: "Servicio" },
   { href: "#testimonios", label: "Testimonios" },
   { href: "#galeria", label: "Galería" },
+  { href: "#fogonero", label: "El Fogonero" },
   { href: "#contacto", label: "Contacto" },
 ];
 

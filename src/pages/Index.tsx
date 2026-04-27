@@ -6,6 +6,7 @@ import MenuSection from "@/components/sections/MenuSection";
 import ServicioSection from "@/components/sections/ServicioSection";
 import TestimoniosSection from "@/components/sections/TestimoniosSection";
 import GaleriaSection from "@/components/sections/GaleriaSection";
+import FogoneroSection from "@/components/sections/FogoneroSection";
 import ContactSection from "@/components/sections/ContactSection";
 import WhatsAppFab from "@/components/WhatsAppFab";
 
@@ -20,6 +21,7 @@ const Index = () => {
         <ServicioSection />
         <TestimoniosSection />
         <GaleriaSection />
+        <FogoneroSection />
         <ContactSection />
       </main>
       <Footer />
