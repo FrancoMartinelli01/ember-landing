@@ -174,7 +174,7 @@ const MenuSection = () => {
                     key={it.name}
                     className="bg-bg-secondary border border-border-subtle rounded-md p-5 overflow-hidden"
                   >
-                    {it.image && <CardImage src={it.image} alt={it.name} />}
+                    {it.image && <CardImage src={it.image} alt={it.name} pad={5} />}
                     <h3 className="font-display text-lg text-foreground">{it.name}</h3>
                     {it.description && (
                       <p className="mt-1 font-body text-sm text-text-muted">{it.description}</p>
