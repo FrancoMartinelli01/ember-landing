@@ -8,27 +8,44 @@ import {
   veggieItems,
 } from "@/data/menuData";
 
-const cardImageClass =
-  "relative w-full h-[180px] -mx-6 -mt-6 mb-5 overflow-hidden rounded-t-md";
-
-const CardImage = ({ src, alt }: { src: string; alt: string }) => (
-  <div className={cardImageClass} style={{ width: "calc(100% + 3rem)" }}>
-    <img
-      src={src}
-      alt={alt}
-      loading="lazy"
-      className="w-full h-full object-cover"
-    />
+const CardImage = ({
+  src,
+  alt,
+  pad = 6,
+}: {
+  src: string;
+  alt: string;
+  pad?: 5 | 6;
+}) => {
+  const offset = pad === 5 ? "-1.25rem" : "-1.5rem";
+  const widthExtra = pad === 5 ? "2.5rem" : "3rem";
+  return (
     <div
-      className="absolute inset-0 pointer-events-none"
-      aria-hidden
+      className="relative h-[180px] overflow-hidden rounded-t-md mb-5"
       style={{
-        background:
-          "linear-gradient(to bottom, transparent 50%, rgba(10,10,10,0.85) 100%)",
+        marginLeft: offset,
+        marginRight: offset,
+        marginTop: offset,
+        width: `calc(100% + ${widthExtra})`,
       }}
-    />
-  </div>
-);
+    >
+      <img
+        src={src}
+        alt={alt}
+        loading="lazy"
+        className="w-full h-full object-cover"
+      />
+      <div
+        className="absolute inset-0 pointer-events-none"
+        aria-hidden
+        style={{
+          background:
+            "linear-gradient(to bottom, transparent 50%, rgba(10,10,10,0.85) 100%)",
+        }}
+      />
+    </div>
+  );
+};
 
 const MenuSection = () => {
   return (
