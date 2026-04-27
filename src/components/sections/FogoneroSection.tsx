@@ -9,7 +9,7 @@ const FogoneroSection = () => {
               src="https://raw.githubusercontent.com/FrancoMartinelli01/ember-landing/main/public/Mateo%20asador.jpeg"
               alt="Mateo Martinelli — El fogonero"
               className="w-full h-full object-cover"
-              style={{ objectPosition: "top center", maxHeight: "520px" }}
+              style={{ objectPosition: "bottom center", maxHeight: "520px" }}
             />
             {/* Bottom gradient overlay */}
             <div
