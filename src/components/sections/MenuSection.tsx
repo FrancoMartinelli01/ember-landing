@@ -162,6 +162,43 @@ const MenuSection = () => {
             </div>
           </TabsContent>
 
+          {/* TAB POSTRES */}
+          <TabsContent value="postres">
+            <div className="max-w-5xl mx-auto space-y-12">
+              {postresGroups.map((group) => (
+                <div key={group.label}>
+                  <div className="flex items-center gap-3 mb-4">
+                    <p
+                      className="font-body uppercase text-[12px]"
+                      style={{ color: "#9A8A7A", letterSpacing: "2px" }}
+                    >
+                      {group.label}
+                    </p>
+                    {group.badge && (
+                      <span className="inline-block px-3 py-1 rounded-full bg-primary text-primary-foreground text-[10px] font-body tracking-wider">
+                        {group.badge}
+                      </span>
+                    )}
+                  </div>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                    {group.items.map((item) => (
+                      <article
+                        key={`${group.label}-${item.name}`}
+                        className="bg-bg-surface border border-border-subtle rounded-md p-6 overflow-hidden hover:border-primary/60 transition-colors"
+                      >
+                        {item.image && <CardImage src={item.image} alt={item.name} />}
+                        <h3 className="font-display text-xl text-foreground">{item.name}</h3>
+                        {item.description && (
+                          <p className="mt-2 font-body text-sm text-text-muted">{item.description}</p>
+                        )}
+                      </article>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </TabsContent>
+
           {/* TAB 4 */}
           <TabsContent value="veggie">
             <div className="max-w-4xl mx-auto bg-bg-surface border-l-4 border-veggie border border-border-subtle rounded-md p-8">
