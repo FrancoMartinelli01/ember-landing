@@ -68,6 +68,7 @@ const MenuSection = () => {
               { v: "finger", l: "Finger Foods" },
               { v: "principales", l: "Principales" },
               { v: "burgers", l: "Hamburguesas al Fuego" },
+              { v: "postres", l: "Postres" },
               { v: "veggie", l: "Opciones Especiales" },
             ].map((t) => (
               <TabsTrigger
