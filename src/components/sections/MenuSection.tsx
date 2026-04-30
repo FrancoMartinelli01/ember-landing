@@ -6,6 +6,7 @@ import {
   burgerDetails,
   burgerImage,
   veggieItems,
+  postresGroups,
 } from "@/data/menuData";
 
 const CardImage = ({
