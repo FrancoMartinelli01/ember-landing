@@ -79,12 +79,12 @@ export const postresGroups: PostresGroup[] = [
   {
     label: "Postres en Vasito (360cc)",
     items: [
-      { name: "Tiramisú", description: "Capas de bizcochuelo, crema de mascarpone y cacao. Un clásico italiano irresistible.", image: `${POSTRES_BASE}postre-tiramisu.jpeg` },
+      { name: "Tiramisú", description: "Capas de bizcochuelo, crema de mascarpone y cacao. Un clásico italiano irresistible.", image: `${POSTRES_BASE}shot-tiramisu.jpeg` },
       { name: "Mousse de Chocolate", description: "Mousse artesanal de chocolate intenso con frutilla fresca.", image: `${POSTRES_BASE}postre-mousse-chocolate.jpeg` },
-      { name: "Mousse de Frutilla", description: "Mousse cremosa de frutilla con coulis de frutos rojos.", image: `${POSTRES_BASE}postre-mousse-frutilla.jpeg` },
-      { name: "Chocotorta / Chocooreo", description: "El clásico argentino en versión gourmet. Capas de chocolate y dulce de leche.", image: `${POSTRES_BASE}postre-chocotorta.jpeg` },
-      { name: "Carrot Cake", description: "Bizcocho de zanahoria, flan y frosting de queso crema sobre masa sablée de nuez.", image: `${POSTRES_BASE}postre-carrot-cake.jpeg` },
-      { name: "Tres Leches", description: "Bizcochuelo esponjoso bañado en tres tipos de leche con crema chantilly.", image: `${POSTRES_BASE}postre-mousse-frutilla.jpeg` },
+      { name: "Mousse de Frutilla", description: "Mousse cremosa de frutilla con coulis de frutos rojos.", image: `${POSTRES_BASE}postre-mousse-chocolate2.jpeg` },
+      { name: "Chocotorta / Chocooreo", description: "El clásico argentino en versión gourmet. Capas de chocolate y dulce de leche.", image: `${POSTRES_BASE}postre-chocotorta..jpeg` },
+      { name: "Carrot Cake", description: "Bizcocho de zanahoria, flan y frosting de queso crema sobre masa sablée de nuez.", image: `${POSTRES_BASE}postre-mousse-chocolate.jpeg` },
+      { name: "Tres Leches", description: "Bizcochuelo esponjoso bañado en tres tipos de leche con crema chantilly.", image: `${POSTRES_BASE}postre-mousse-chocolate2.jpeg` },
     ],
   },
   {
@@ -108,9 +108,9 @@ export const postresGroups: PostresGroup[] = [
     label: "Petit Fours (Caja x30)",
     badge: "CAJA x 30 UNIDADES",
     items: [
-      { name: "Alfajores Artesanales", description: "Alfajores de chocolate, dulce de leche y pistacho. Masa suave, relleno generoso.", image: `${POSTRES_BASE}petitfour-alfajores.jpeg` },
-      { name: "Cookies Artesanales", description: "Cookies en distintas variedades: chocolate, clásica con drizzle y más.", image: `${POSTRES_BASE}petitfour-cookies.jpeg` },
-      { name: "Surtido Dulce", description: "Mix de cuadrados dulces, petit fours y bocados artesanales de temporada.", image: `${POSTRES_BASE}petitfour-surtido.jpeg` },
+      { name: "Alfajores Artesanales", description: "Alfajores de chocolate, dulce de leche y pistacho. Masa suave, relleno generoso.", image: `${POSTRES_BASE}petitfour-alfajores2.jpeg` },
+      { name: "Cookies Artesanales", description: "Cookies en distintas variedades: chocolate, clásica con drizzle y más.", image: `${POSTRES_BASE}petitfour-surtido.jpeg` },
+      { name: "Surtido Dulce", description: "Mix de cuadrados dulces, petit fours y bocados artesanales de temporada.", image: `${POSTRES_BASE}petitfour-surtido2.jpeg` },
     ],
   },
 ];
