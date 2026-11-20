@@ -9,8 +9,10 @@ import {
   postresGroups,
 } from "@/data/menuData";
 import SumarBoton from "@/components/evento/SumarBoton";
+import HistoriaPlato from "@/components/menu/HistoriaPlato";
+import { historias } from "@/data/historias";
 
-const PRINCIPAL_IDS = ["sandwich", "pinche", "plato"];
+const PRINCIPAL_IDS = ["sandwich", "pinche", "plato"] as const;
 
 const CardImage = ({
   src,
@@ -130,12 +132,10 @@ const MenuSection = () => {
                       </li>
                     ))}
                   </ul>
-                  <SumarBoton
-                    tipo="principal"
-                    principalId={PRINCIPAL_IDS[idx]}
-                    nombre={card.title}
-                    className="mt-auto self-start"
-                  />
+                  <div className="mt-auto flex flex-wrap items-center gap-4">
+                    <HistoriaPlato historia={historias[PRINCIPAL_IDS[idx]]} />
+                    <SumarBoton tipo="principal" principalId={PRINCIPAL_IDS[idx]} nombre={card.title} />
+                  </div>
                 </article>
               ))}
             </div>
@@ -172,7 +172,10 @@ const MenuSection = () => {
                     </li>
                   ))}
                 </ul>
-                <SumarBoton tipo="principal" principalId="burgers" nombre="Hamburguesas al Fuego" className="mt-8" />
+                <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
+                  <HistoriaPlato historia={historias.burgers} />
+                  <SumarBoton tipo="principal" principalId="burgers" nombre="Hamburguesas al Fuego" />
+                </div>
               </div>
             </div>
           </TabsContent>

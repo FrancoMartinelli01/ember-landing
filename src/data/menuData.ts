@@ -20,7 +20,7 @@ export type ModalidadCard = {
 export const principales: ModalidadCard[] = [
   {
     title: "Asado al Sándwich",
-    image: "https://images.unsplash.com/photo-1558030006-450675393462?w=800&q=80",
+    image: "/carta/sandwich.webp",
     items: [
       "Choripán artesanal con chimichurri",
       "Colita de cuadril tierna al pan",
@@ -31,7 +31,7 @@ export const principales: ModalidadCard[] = [
   {
     title: "Asado Gourmet al Pinche",
     badge: "⭐ Premium",
-    image: "https://images.unsplash.com/photo-1544025162-d76694265947?w=800&q=80",
+    image: "/carta/pinche.webp",
     items: [
       "Provoletas a las brasas con orégano",
       "Mollejas crocantes al limón",
@@ -41,7 +41,7 @@ export const principales: ModalidadCard[] = [
   {
     title: "Asado Gourmet al Plato",
     badge: "👑 Premium Plus",
-    image: "https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=800&q=80",
+    image: "/carta/plato.webp",
     items: [
       "Lomo a la parrilla, término a elección",
       "Guarniciones gourmet incluidas",
@@ -58,7 +58,7 @@ export const burgerDetails: string[] = [
   "Opciones doble burger y vegetariana",
 ];
 
-export const burgerImage = "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=1200&q=80";
+export const burgerImage = "/carta/burgers.webp";
 
 export const veggieItems: MenuItem[] = [
   { name: "Veggie Burger", description: "Medallón de legumbres y vegetales grillados.", image: "https://images.unsplash.com/photo-1520072959219-c595dc870360?w=600&q=80" },
