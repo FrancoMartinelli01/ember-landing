@@ -8,6 +8,9 @@ import {
   veggieItems,
   postresGroups,
 } from "@/data/menuData";
+import SumarBoton from "@/components/evento/SumarBoton";
+
+const PRINCIPAL_IDS = ["sandwich", "pinche", "plato"];
 
 const CardImage = ({
   src,
@@ -62,6 +65,10 @@ const MenuSection = () => {
           </h2>
         </div>
 
+        <p className="-mt-6 mb-10 text-center font-body text-sm text-text-muted">
+          Tocá <span className="text-ember-warm">“Sumar a mi evento”</span> en lo que te tiente y lo armamos juntos al final.
+        </p>
+
         <Tabs defaultValue="finger" className="w-full">
           <TabsList className="flex flex-wrap justify-center h-auto bg-transparent gap-2 mb-10">
             {[
@@ -94,6 +101,7 @@ const MenuSection = () => {
                   {item.description && (
                     <p className="mt-2 font-body text-sm text-text-muted">{item.description}</p>
                   )}
+                  <SumarBoton tipo="item" categoria="finger" nombre={item.name} className="mt-4" />
                 </article>
               ))}
             </div>
@@ -102,7 +110,7 @@ const MenuSection = () => {
           {/* TAB 2 */}
           <TabsContent value="principales">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-              {principales.map((card) => (
+              {principales.map((card, idx) => (
                 <article
                   key={card.title}
                   className="bg-bg-surface border border-border-subtle rounded-md p-6 overflow-hidden flex flex-col"
@@ -114,7 +122,7 @@ const MenuSection = () => {
                     </span>
                   )}
                   <h3 className="font-display text-2xl text-foreground">{card.title}</h3>
-                  <ul className="mt-4 space-y-2 font-body text-text-muted">
+                  <ul className="mt-4 mb-6 space-y-2 font-body text-text-muted">
                     {card.items.map((it) => (
                       <li key={it} className="flex gap-2">
                         <span className="text-ember-warm mt-1">•</span>
@@ -122,6 +130,12 @@ const MenuSection = () => {
                       </li>
                     ))}
                   </ul>
+                  <SumarBoton
+                    tipo="principal"
+                    principalId={PRINCIPAL_IDS[idx]}
+                    nombre={card.title}
+                    className="mt-auto self-start"
+                  />
                 </article>
               ))}
             </div>
@@ -158,6 +172,7 @@ const MenuSection = () => {
                     </li>
                   ))}
                 </ul>
+                <SumarBoton tipo="principal" principalId="burgers" nombre="Hamburguesas al Fuego" className="mt-8" />
               </div>
             </div>
           </TabsContent>
@@ -191,6 +206,12 @@ const MenuSection = () => {
                         {item.description && (
                           <p className="mt-2 font-body text-sm text-text-muted">{item.description}</p>
                         )}
+                        <SumarBoton
+                          tipo="item"
+                          categoria="postre"
+                          nombre={`${item.name} · ${group.label.replace(/ \(.*\)/, "")}`}
+                          className="mt-4"
+                        />
                       </article>
                     ))}
                   </div>
@@ -218,6 +239,7 @@ const MenuSection = () => {
                     {it.description && (
                       <p className="mt-1 font-body text-sm text-text-muted">{it.description}</p>
                     )}
+                    <SumarBoton tipo="item" categoria="veggie" nombre={it.name} className="mt-4" />
                   </article>
                 ))}
               </div>

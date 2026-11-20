@@ -7,10 +7,10 @@ const links = [
   { href: "#propuesta", label: "Propuesta" },
   { href: "#menu", label: "Menú" },
   { href: "#servicio", label: "Servicio" },
-  { href: "#testimonios", label: "Testimonios" },
-  { href: "#galeria", label: "Galería" },
+  { href: "#como", label: "Cómo funciona" },
   { href: "#fogonero", label: "El Fogonero" },
-  { href: "#contacto", label: "Contacto" },
+  { href: "#galeria", label: "Galería" },
+  { href: "#armar", label: "Armá tu evento" },
 ];
 
 const Navbar = () => {
@@ -42,12 +42,17 @@ const Navbar = () => {
           />
         </a>
 
-        <ul className="hidden md:flex items-center gap-8">
+        <ul className="hidden lg:flex items-center gap-6 xl:gap-8">
           {links.map((l) => (
             <li key={l.href}>
               <a
                 href={l.href}
-                className="font-body text-sm text-text-muted hover:text-foreground transition-colors relative after:absolute after:left-0 after:-bottom-1 after:h-px after:w-0 after:bg-primary after:transition-all hover:after:w-full"
+                className={cn(
+                  "font-body text-sm transition-colors relative",
+                  l.href === "#armar"
+                    ? "rounded-full border border-ember-orange/60 px-4 py-2 text-foreground hover:bg-primary hover:border-primary"
+                    : "text-text-muted hover:text-foreground after:absolute after:left-0 after:-bottom-1 after:h-px after:w-0 after:bg-primary after:transition-all hover:after:w-full"
+                )}
               >
                 {l.label}
               </a>
@@ -55,7 +60,7 @@ const Navbar = () => {
           ))}
         </ul>
 
-        <div className="md:hidden">
+        <div className="lg:hidden">
           <Sheet open={open} onOpenChange={setOpen}>
             <SheetTrigger
               className="p-2 text-foreground"

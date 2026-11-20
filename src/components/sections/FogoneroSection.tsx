@@ -1,90 +1,72 @@
+import { useRef } from "react";
+import { tramo, useMenosMovimiento, useProgresoSticky } from "@/hooks/use-scroll";
+
+/**
+ * "El fogonero" con capas (inspirado en NOCTURNE de thepromptsfactory): Mateo recortado entre
+ * letras gigantes. Al scrollear, "EL FOGONERO" se abre detrás de él y "MATEO" sube por delante.
+ */
 const FogoneroSection = () => {
+  const menos = useMenosMovimiento();
+  const escena = useRef<HTMLDivElement>(null);
+
+  const ref = useProgresoSticky<HTMLDivElement>((p) => {
+    const el = escena.current;
+    if (!el) return;
+    const q = menos ? 1 : tramo(p, 0.05, 0.75);
+    const eased = 1 - Math.pow(1 - q, 3);
+    el.style.setProperty("--q", eased.toFixed(4));
+  });
+
   return (
-    <section id="fogonero" className="relative z-10 py-24 md:py-32 bg-[#0f0f0f]">
-      <div className="container">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
-          {/* LEFT COLUMN — Photo */}
-          <div className="relative overflow-hidden rounded-xl" style={{ maxHeight: "520px" }}>
-            <img
-              src="https://raw.githubusercontent.com/FrancoMartinelli01/ember-landing/main/public/Mateo%20asador.jpeg"
-              alt="Mateo Martinelli — El fogonero"
-              className="w-full h-full object-cover"
-              style={{ objectPosition: "30% center", maxHeight: "520px" }}
-            />
-            {/* Bottom gradient overlay */}
-            <div
-              className="absolute inset-x-0 bottom-0 pointer-events-none"
-              style={{
-                height: "50%",
-                background: "linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 100%)",
-              }}
-            />
+    <section id="fogonero" className="relative z-10 bg-[#0f0f0f]">
+      <div ref={ref} className={menos ? "relative" : "relative h-[200vh]"}>
+        <div
+          ref={escena}
+          className="fogonero-escena sticky top-0 flex h-[100dvh] items-end justify-center overflow-hidden"
+        >
+          <p className="absolute left-1/2 top-24 z-30 -translate-x-1/2 whitespace-nowrap font-body text-xs uppercase tracking-[0.3em] text-text-muted md:top-28">
+            Quién está detrás del fuego
+          </p>
+
+          {/* Detrás */}
+          <div aria-hidden className="fogonero-atras pointer-events-none absolute inset-x-0 top-[22%] z-0 select-none text-center font-display font-black uppercase leading-[0.82]">
+            <span className="fogonero-linea-1 block">El</span>
+            <span className="fogonero-linea-2 block">Fogonero</span>
           </div>
 
-          {/* RIGHT COLUMN — Content */}
-          <div
-            className="relative flex flex-col justify-center"
-            style={{
-              background: "radial-gradient(ellipse at left center, rgba(80,20,5,0.15) 0%, transparent 60%)",
-            }}
+          {/* Mateo */}
+          <img
+            src="/mateo-recorte.webp"
+            alt="Mateo Martinelli, el fogonero de Fuego Nómade"
+            className="fogonero-mateo relative z-10 h-[62dvh] w-auto max-w-none md:h-[74dvh]"
+            width={410}
+            height={530}
+          />
+
+          {/* Delante */}
+          <p aria-hidden className="fogonero-adelante pointer-events-none absolute inset-x-0 bottom-[-0.12em] z-20 select-none text-center font-display font-black uppercase leading-none">
+            Mateo
+          </p>
+        </div>
+      </div>
+
+      <div className="container relative z-10 py-20 md:py-28">
+        <div className="mx-auto grid max-w-5xl grid-cols-1 items-start gap-10 md:grid-cols-[1fr_1.1fr] md:gap-16">
+          <blockquote
+            className="pl-5 font-display text-3xl italic leading-snug text-foreground md:text-4xl"
+            style={{ borderLeft: "3px solid #6B1A2A" }}
           >
-            {/* Small uppercase label */}
-            <p
-              className="font-body text-xs tracking-[0.2em] uppercase mb-3"
-              style={{ color: "#9A8A7A" }}
-            >
-              QUIÉN ESTÁ DETRÁS DEL FUEGO
+            “No aprendí en un aula. Aprendí al lado del fuego.”
+          </blockquote>
+          <div>
+            <p className="mb-2 font-display text-lg italic" style={{ color: "#C44B1B" }}>
+              Mateo Martinelli, el fogonero
             </p>
-
-            {/* Section tag */}
-            <p
-              className="font-display italic text-lg mb-1"
-              style={{ color: "#C44B1B" }}
-            >
-              El fogonero
+            <p className="mb-6 font-body text-[15px]" style={{ color: "#9A8A7A", lineHeight: 1.8 }}>
+              Tiene 24 años y desde que tiene memoria, el fuego fue suyo. En cada juntada familiar, en cada reunión de
+              amigos, siempre fue él el que se ponía al mando de la parrilla. No por obligación, por pasión. Hoy convierte
+              esa misma energía y dedicación en experiencias gastronómicas únicas para tus eventos.
             </p>
-
-            {/* Name */}
-            <h3
-              className="font-display text-4xl md:text-[36px] font-bold mb-4"
-              style={{ color: "#F5EDE3" }}
-            >
-              Mateo Martinelli
-            </h3>
-
-            {/* Bordó divider */}
-            <div
-              className="mb-5"
-              style={{
-                width: "40px",
-                height: "2px",
-                backgroundColor: "#6B1A2A",
-              }}
-            />
-
-            {/* Pull quote */}
-            <blockquote
-              className="font-display italic text-xl mb-5 pl-4"
-              style={{
-                borderLeft: "3px solid #6B1A2A",
-                color: "#F5EDE3",
-              }}
-            >
-              No aprendí en un aula. Aprendí al lado del fuego.
-            </blockquote>
-
-            {/* Bio text */}
-            <p
-              className="font-body text-[15px] mb-6"
-              style={{
-                color: "#9A8A7A",
-                lineHeight: 1.8,
-              }}
-            >
-              Tiene 24 años y desde que tiene memoria, el fuego fue suyo. En cada juntada familiar, en cada reunión de amigos, siempre fue él el que se ponía al mando de la parrilla. No por obligación — por pasión. Hoy convierte esa misma energía y dedicación en experiencias gastronómicas únicas para tus eventos.
-            </p>
-
-            {/* Tags row */}
             <div className="flex flex-wrap gap-2">
               {["Fuego en vivo", "Cortes premium", "Cocina artesanal"].map((tag) => (
                 <span

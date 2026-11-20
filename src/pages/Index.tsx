@@ -4,11 +4,12 @@ import HeroSection from "@/components/sections/HeroSection";
 import PropuestaSection from "@/components/sections/PropuestaSection";
 import MenuSection from "@/components/sections/MenuSection";
 import ServicioSection from "@/components/sections/ServicioSection";
-import TestimoniosSection from "@/components/sections/TestimoniosSection";
+import ComoFuncionaSection from "@/components/sections/ComoFuncionaSection";
 import GaleriaSection from "@/components/sections/GaleriaSection";
 import FogoneroSection from "@/components/sections/FogoneroSection";
-import ContactSection from "@/components/sections/ContactSection";
+import ArmaTuEventoSection from "@/components/sections/ArmaTuEventoSection";
 import WhatsAppFab from "@/components/WhatsAppFab";
+import EventoPill from "@/components/evento/EventoPill";
 
 const Index = () => {
   return (
@@ -19,13 +20,14 @@ const Index = () => {
         <PropuestaSection />
         <MenuSection />
         <ServicioSection />
-        <TestimoniosSection />
-        <GaleriaSection />
+        <ComoFuncionaSection />
         <FogoneroSection />
-        <ContactSection />
+        <GaleriaSection />
+        <ArmaTuEventoSection />
       </main>
       <Footer />
       <WhatsAppFab />
+      <EventoPill />
     </div>
   );
 };

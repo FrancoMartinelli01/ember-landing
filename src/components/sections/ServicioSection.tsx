@@ -1,3 +1,4 @@
+import PalabrasQueGiran from "@/components/PalabrasQueGiran";
 import { Utensils, ChefHat, Truck, Flame } from "lucide-react";
 
 const items = [
@@ -69,8 +70,12 @@ const ServicioSection = () => {
         </div>
 
         <div className="mt-14 max-w-4xl mx-auto bg-bg-secondary border border-border-subtle rounded-md p-10 text-center ember-glow">
-          <p className="font-display italic text-2xl md:text-3xl text-foreground leading-snug">
-            Nos adaptamos a tu evento: cumpleaños, casamiento, corporativo o reunión íntima.
+          <p className="font-display italic text-2xl md:text-4xl text-foreground leading-snug">
+            Nos adaptamos a tu{" "}
+            <PalabrasQueGiran
+              className="not-italic font-black text-ember-warm"
+              palabras={["cumpleaños", "casamiento", "evento corporativo", "juntada", "reunión íntima", "despedida"]}
+            />
           </p>
         </div>
       </div>

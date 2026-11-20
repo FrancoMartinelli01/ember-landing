@@ -1,5 +1,3 @@
-import { Instagram } from "lucide-react";
-
 const Footer = () => {
   return (
     <footer className="relative z-10 border-t border-border-subtle bg-bg-secondary py-12">
@@ -12,15 +10,6 @@ const Footer = () => {
         <p className="font-display italic text-text-muted">El fuego que transforma tus eventos.</p>
         <div className="flex items-center gap-4 mt-2">
           <a
-            href="https://instagram.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Instagram"
-            className="p-2 rounded-full border border-border-subtle hover:border-primary hover:text-ember-warm transition-colors"
-          >
-            <Instagram className="h-5 w-5" />
-          </a>
-          <a
             href="https://wa.me/5491169092108?text=Hola!%20Quiero%20pedir%20un%20presupuesto%20para%20mi%20evento%20%F0%9F%94%A5"
             target="_blank"
             rel="noopener noreferrer"
@@ -32,7 +21,7 @@ const Footer = () => {
             </svg>
           </a>
         </div>
-        <p className="text-xs text-text-muted mt-4">© 2025 Fuego Nómade. Todos los derechos reservados.</p>
+        <p className="text-xs text-text-muted mt-4">© {new Date().getFullYear()} Fuego Nómade. Todos los derechos reservados.</p>
       </div>
     </footer>
   );

@@ -67,7 +67,7 @@ export const veggieItems: MenuItem[] = [
   { name: "Nachos con guacamole", description: "100% vegano, palta fresca y lima.", image: "https://images.unsplash.com/photo-1513456852971-30c0b8199d4d?w=600&q=80" },
 ];
 
-const POSTRES_BASE = "https://raw.githubusercontent.com/FrancoMartinelli01/ember-landing/main/public/";
+const POSTRES_BASE = "/";
 
 export type PostresGroup = {
   label: string;
@@ -83,8 +83,8 @@ export const postresGroups: PostresGroup[] = [
       { name: "Mousse de Chocolate", description: "Mousse artesanal de chocolate intenso con frutilla fresca.", image: `${POSTRES_BASE}postre-mousse-chocolate.jpeg` },
       { name: "Mousse de Frutilla", description: "Mousse cremosa de frutilla con coulis de frutos rojos.", image: `${POSTRES_BASE}postre-mousse-chocolate2.jpeg` },
       { name: "Chocotorta / Chocooreo", description: "El clásico argentino en versión gourmet. Capas de chocolate y dulce de leche.", image: `${POSTRES_BASE}postre-chocotorta..jpeg` },
-      { name: "Carrot Cake", description: "Bizcocho de zanahoria, flan y frosting de queso crema sobre masa sablée de nuez.", image: `${POSTRES_BASE}postre-mousse-chocolate.jpeg` },
-      { name: "Tres Leches", description: "Bizcochuelo esponjoso bañado en tres tipos de leche con crema chantilly.", image: `${POSTRES_BASE}postre-mousse-chocolate2.jpeg` },
+      { name: "Carrot Cake", description: "Bizcocho de zanahoria, flan y frosting de queso crema sobre masa sablée de nuez." },
+      { name: "Tres Leches", description: "Bizcochuelo esponjoso bañado en tres tipos de leche con crema chantilly." },
     ],
   },
   {

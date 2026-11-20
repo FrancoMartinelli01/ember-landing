@@ -108,3 +108,150 @@
     background: linear-gradient(to right, transparent, hsl(var(--border-subtle)), transparent);
   }
 }
+
+/* ---------- Armá tu evento ---------- */
+@layer components {
+  .comanda::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -1px;
+    height: 12px;
+    background: linear-gradient(-45deg, hsl(var(--bg-secondary)) 6px, transparent 0),
+      linear-gradient(45deg, hsl(var(--bg-secondary)) 6px, transparent 0);
+    background-size: 12px 12px;
+    background-position: left bottom;
+  }
+  .comanda-linea {
+    animation: comanda-tinta 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  }
+  .paso-entrada {
+    animation: paso-entrada 0.45s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  }
+}
+
+@keyframes comanda-tinta {
+  from { opacity: 0; transform: translateX(-8px); filter: blur(2px); }
+  to { opacity: 1; transform: none; filter: none; }
+}
+@keyframes paso-entrada {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: none; }
+}
+
+/* ---------- Cómo funciona: la mecha ---------- */
+.como-mecha {
+  background: linear-gradient(90deg, #6b1a2a, #c44b1b 60%, #ffb36b);
+  box-shadow: 0 0 12px rgba(232, 119, 58, 0.7);
+  transform-origin: left center;
+  transform: scaleX(0);
+  /* mobile: línea vertical a la izquierda de las brasas */
+  left: 27px; top: 28px; bottom: 28px; width: 2px;
+  transform: scaleY(0);
+  transform-origin: center top;
+  transition: transform 2.4s cubic-bezier(0.45, 0, 0.2, 1);
+}
+@media (min-width: 768px) {
+  .como-mecha { top: 27px; bottom: auto; height: 2px; width: auto; left: 12.5%; right: 12.5%; transform: scaleX(0); transform-origin: left center; }
+}
+.como.visto .como-mecha { transform: none; }
+.como-brasa {
+  background: #121212;
+  border-color: hsl(var(--border-subtle));
+  color: hsl(var(--text-muted));
+  transition: all 0.5s ease calc(var(--i) * 0.7s + 0.1s);
+}
+.como.visto .como-brasa {
+  background: radial-gradient(circle at 50% 60%, #8b2035, #3d0e16);
+  border-color: rgba(232, 119, 58, 0.8);
+  color: #f5ede3;
+  box-shadow: 0 0 22px rgba(232, 119, 58, 0.55), 0 0 50px rgba(196, 75, 27, 0.25);
+}
+.como-paso > div {
+  opacity: 0.35;
+  transform: translateY(8px);
+  transition: all 0.6s ease calc(var(--i) * 0.7s + 0.2s);
+}
+.como.visto .como-paso > div { opacity: 1; transform: none; }
+
+/* ---------- Hero: apertura ---------- */
+.hero-escena { --e: 0; --t: 0; }
+.hero-apertura {
+  /* ventana chica abajo en celular; a la derecha en compu */
+  clip-path: inset(calc((1 - var(--e)) * 56%) calc((1 - var(--e)) * 6%) calc((1 - var(--e)) * 9%) calc((1 - var(--e)) * 6%) round calc((1 - var(--e)) * 14px));
+  will-change: clip-path;
+}
+.hero-velo {
+  background: linear-gradient(to top, rgba(10, 10, 10, 0.85), rgba(10, 10, 10, 0.1) 45%, rgba(10, 10, 10, 0.35)),
+    radial-gradient(ellipse at center, transparent 40%, rgba(10, 10, 10, 0.7));
+  opacity: calc(0.25 + var(--t) * 0.75);
+}
+.hero-velo::after { content: ""; position: absolute; inset: 0; background: rgba(10, 10, 10, 0.5); opacity: var(--t); }
+.hero-final p { text-shadow: 0 2px 30px rgba(0, 0, 0, 0.85), 0 0 60px rgba(0, 0, 0, 0.6); }
+.hero-titulo {
+  opacity: calc(1 - var(--e) * 1.8);
+  transform: translateY(calc(var(--e) * -60px)) scale(calc(1 - var(--e) * 0.06));
+}
+.hero-etiqueta { left: 6%; bottom: calc(9% - 26px); opacity: calc(1 - var(--e) * 4); }
+.hero-final { opacity: var(--t); transform: translateY(calc((1 - var(--t)) * 30px)); pointer-events: none; }
+.hero-escena[style*="--t: 1"] .hero-final { pointer-events: auto; }
+.hero-flecha { opacity: calc(1 - var(--e) * 5); }
+@media (min-width: 768px) {
+  .hero-apertura {
+    clip-path: inset(calc((1 - var(--e)) * 20%) calc((1 - var(--e)) * 5%) calc((1 - var(--e)) * 20%) calc((1 - var(--e)) * 54%) round calc((1 - var(--e)) * 16px));
+  }
+  .hero-etiqueta { left: 54%; bottom: calc(20% - 28px); }
+}
+
+/* ---------- El fogonero: capas ---------- */
+.fogonero-escena {
+  --q: 0;
+  background: radial-gradient(ellipse at 50% 85%, #5a1a10 0%, #2a0a10 35%, #0f0f0f 75%);
+}
+.fogonero-atras { font-size: clamp(3.5rem, 14vw, 13rem); color: #6b1a2a; }
+.fogonero-linea-1 {
+  transform: translateX(calc((1 - var(--q)) * 8vw)) ;
+  color: #8b2035;
+  opacity: calc(0.4 + var(--q) * 0.6);
+}
+.fogonero-linea-2 {
+  transform: translateX(calc((1 - var(--q)) * -8vw));
+  background: linear-gradient(180deg, #e8773a 0%, #a0293f 70%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  opacity: calc(0.35 + var(--q) * 0.65);
+  filter: drop-shadow(0 0 40px rgba(232, 119, 58, calc(var(--q) * 0.35)));
+}
+.fogonero-mateo {
+  transform: translateY(calc((1 - var(--q)) * 18%)) scale(calc(0.92 + var(--q) * 0.08));
+  transform-origin: bottom center;
+  filter: drop-shadow(0 0 50px rgba(196, 75, 27, calc(var(--q) * 0.35))) brightness(calc(0.7 + var(--q) * 0.3));
+}
+.fogonero-adelante {
+  font-size: clamp(4.5rem, 20vw, 18rem);
+  color: #f5ede3;
+  transform: translateY(calc((1 - var(--q)) * 60%));
+  opacity: var(--q);
+  text-shadow: 0 -10px 60px rgba(10, 10, 10, 0.6);
+}
+
+/* ---------- Galería: pila de fotos ---------- */
+.pila .polaroid { position: relative; opacity: 0; transform: translateY(-120px) rotate(-12deg) scale(1.1); }
+.pila.vista .polaroid {
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.4s ease calc(var(--i) * 0.12s), transform 0.7s cubic-bezier(0.2, 0.9, 0.25, 1.15) calc(var(--i) * 0.12s);
+}
+.pila-lugar { transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1); }
+
+/* ---------- Palabras que giran ---------- */
+.giro-letra {
+  transform-origin: 50% 60%;
+  animation: giro-letra 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+@keyframes giro-letra {
+  from { opacity: 0; transform: rotateX(-95deg) translateY(0.25em); filter: blur(3px); }
+  to { opacity: 1; transform: none; filter: none; }
+}
