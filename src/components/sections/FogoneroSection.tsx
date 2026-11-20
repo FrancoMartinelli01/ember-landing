@@ -38,9 +38,9 @@ const FogoneroSection = () => {
           <img
             src="/mateo-recorte.webp"
             alt="Mateo Martinelli, el fogonero de Fuego Nómade"
-            className="fogonero-mateo relative z-10 h-[62dvh] w-auto max-w-none md:h-[74dvh]"
-            width={410}
-            height={530}
+            className="fogonero-mateo relative z-10 h-[52dvh] max-h-[640px] w-auto max-w-none md:h-[66dvh]"
+            width={1230}
+            height={1590}
           />
 
           {/* Delante */}

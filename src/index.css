@@ -230,7 +230,7 @@
   filter: drop-shadow(0 0 50px rgba(196, 75, 27, calc(var(--q) * 0.35))) brightness(calc(0.7 + var(--q) * 0.3));
 }
 .fogonero-adelante {
-  font-size: clamp(4.5rem, 20vw, 18rem);
+  font-size: clamp(4rem, 18vw, 12rem);
   color: #f5ede3;
   transform: translateY(calc((1 - var(--q)) * 60%));
   opacity: var(--q);
